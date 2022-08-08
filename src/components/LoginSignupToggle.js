@@ -6,7 +6,7 @@ import Signup from './Signup';
 const LoginSignupToggle = () => {
     const [activeClass, setActiveClass] = useState('');
     return (
-        <div className="wrapper">
+        <div className="wrapper flex items-center justify-center">
             <div className={`container ${activeClass}`}>
                 <div>
                     <Signup />
@@ -21,7 +21,7 @@ const LoginSignupToggle = () => {
                     <div className="overlay-right">
                         <h1>Hello, Friend</h1>
                         <p>Enter your personal details and start journey with us</p>
-                        <button onClick={() => setActiveClass('right-panel-active')} id="signUp" className="overlay_btn">Sign Up</button>
+                        <button onClick={() => setActiveClass('right-panel-active')} id="signUp" className="overlay_btn button">Sign Up</button>
                     </div>
                 </div>
             </div>
