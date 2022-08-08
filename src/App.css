@@ -78,6 +78,14 @@ button {
     box-shadow: -5px -5px 10px #ff6b3f, 5px 5px 8px #bf4b2b;
 }
 
+.sign-in-container {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
 .sign-up-container {
     position: absolute;
     left: 0;
@@ -116,6 +124,11 @@ button {
     background-color: #ff4b2b;
     color: #fff;
     transition: all 0.5s;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+    opacity: 0;
 }
 
 .container.right-panel-active .sign-up-container {
