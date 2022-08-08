@@ -29,13 +29,14 @@ const Login = () => {
 
         if (error?.message?.includes('auth/user-not-found')) {
             toast.error('User not found');
-            setErrorMessage('User not found');
+            return;
+        } else if (error?.message?.includes('auth/wrong-password')) {
+            toast.error('Password is incorrect');
             return;
         }
 
         reset();
         toast.success('Successfully logged in.');
-        console.log(error);
 
     }
     return (

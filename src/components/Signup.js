@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast';
-import { sendEmailVerification, updateProfile } from 'firebase/auth';
+import { sendEmailVerification } from 'firebase/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -12,7 +12,6 @@ const Signup = () => {
     const [updateProfile] = useUpdateProfile(auth);
 
     const onSubmitParam = async data => {
-        console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         sendEmailVerification();
         await updateProfile({ displayName: data.name });

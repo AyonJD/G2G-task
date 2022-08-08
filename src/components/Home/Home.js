@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const Home = () => {
-    const user = useAuthState(auth);
-    console.log(user)
+    const [user, setUser] = useState([]);
+    const authUser = useAuthState(auth)
+    useEffect(() => {
+        setUser(authUser)
+    }, [authUser]);
     const navigate = useNavigate();
-
     return (
         <div className='md:flex justify-center mt-10 items-center text-center'>
             <h1 className='inline-block text-xl font-semibold text[] mr-6'>Welcome, <span className='text-[green] text-2xl font-semibold'>{user[0]?.displayName}</span></h1>
-            <button className='inline-block btn btn-primary' onClick={() => {
+            <button className='inline-block btn btn-primary' onClick={async () => {
+                await signOut(auth);
                 navigate('/');
-                signOut(auth);
             }}>Log Out</button>
         </div>
     );
