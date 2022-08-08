@@ -9,9 +9,11 @@ function App() {
   return (
     <div className="wrapper">
       <div className={`container ${activeClass}`}>
-        <Signup />
-        <Login />
-        <div className="overlay-container">
+        <div>
+          <Signup />
+          <Login />
+        </div>
+        <div className="overlay-container hidden">
           <div className="overlay-left">
             <h1>Welcome Back</h1>
             <p>To keep connected with us please login with your personal info</p>
