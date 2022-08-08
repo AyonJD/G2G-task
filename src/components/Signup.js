@@ -1,7 +1,5 @@
-import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
