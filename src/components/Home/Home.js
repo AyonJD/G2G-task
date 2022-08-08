@@ -9,7 +9,7 @@ const Home = () => {
     const authUser = useAuthState(auth)
     useEffect(() => {
         setUser(authUser)
-    }, [authUser]);
+    }, [authUser, user]);
     const navigate = useNavigate();
     return (
         <div className='md:flex justify-center mt-10 items-center text-center'>
