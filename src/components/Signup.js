@@ -69,7 +69,7 @@ const Signup = () => {
                         required: 'Password is required',
                         pattern: {
                             value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                            message: "Minimum eight characters, at least one letter and one number"
+                            message: "Minimum eight characters, at least one uppercase and one number"
                         }
                     })}
                     onKeyUp={() => {
