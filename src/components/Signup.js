@@ -1,11 +1,14 @@
+import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
-    const { register, handleSubmit, formState: { errors }, trigger } = useForm();
+    const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
 
-    const onSubmitParam = async data => {
+    const onSubmitParam = data => {
         console.log(data)
+        reset();
 
     }
     return (
@@ -36,8 +39,7 @@ const Signup = () => {
                         trigger('name')
                     }}
                 />
-                {/* {errors?.firstname?.type === "required" && <p className='text-red-500 text-sm'>First Name is required</p>}
-                <p className='text-red-500 text-sm'>{errors?.firstname?.message}</p> */}
+                <small className='text-[#FF4B2B] custom_font_size'>{errors?.name?.message}</small>
 
 
                 <input type="email" placeholder="Email"
@@ -52,8 +54,7 @@ const Signup = () => {
                         trigger('email')
                     }}
                 />
-                {/* <p className='text-red-500 text-sm'>{errors?.email?.message}</p> */}
-
+                <small className='text-[#FF4B2B] custom_font_size'>{errors?.email?.message}</small>
 
 
                 <input type="password" placeholder="Password"
@@ -68,7 +69,7 @@ const Signup = () => {
                         trigger('password')
                     }}
                 />
-                {/* <p className='text-red-500 text-sm'>{errors?.password?.message}</p> */}
+                <small className='text-[#FF4B2B] custom_font_size'>{errors?.password?.message}</small>
 
 
                 <button type="submit" className="form_btn">Sign Up</button>
