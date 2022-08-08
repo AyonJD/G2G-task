@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import toast from 'react-hot-toast';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
@@ -10,6 +12,15 @@ const Login = () => {
         signInWithEmailAndPassword,
         , , ,
     ] = useSignInWithEmailAndPassword(auth);
+    const user = useAuthState(auth);
+    // console.log(user[0]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user[0]) {
+            navigate('/');
+        }
+    }, [user])
 
     const onSubmitParam = data => {
         signInWithEmailAndPassword(data.email, data.password);
