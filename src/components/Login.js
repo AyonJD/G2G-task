@@ -1,12 +1,20 @@
 import { useForm } from 'react-hook-form';
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        , , ,
+    ] = useSignInWithEmailAndPassword(auth);
 
     const onSubmitParam = data => {
-        console.log(data)
+        signInWithEmailAndPassword(data.email, data.password);
         reset();
+        toast.success('Successfully logged in.');
 
     }
     return (
