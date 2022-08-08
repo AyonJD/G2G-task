@@ -1,13 +1,20 @@
+import toast from 'react-hot-toast';
+import { sendEmailVerification } from 'firebase/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
+    const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
 
-    const onSubmitParam = data => {
+    const onSubmitParam = async data => {
         console.log(data)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        sendEmailVerification();
         reset();
-
+        toast.success('Account created successfully. Please verify your email.')
     }
     return (
         <div className="sign-up-container">

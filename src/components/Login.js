@@ -10,18 +10,18 @@ const Login = () => {
 
     }
     return (
-        <div class="sign-in-container">
+        <div className="sign-in-container">
             <form onSubmit={handleSubmit(onSubmitParam)}>
                 <h1>Sign In</h1>
-                <div class="social-links">
+                <div className="social-links">
                     <div>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
                     </div>
                     <div>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a>
                     </div>
                     <div>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <span>or use your account</span>
@@ -53,7 +53,7 @@ const Login = () => {
                 />
                 <small className='text-[#FF4B2B] custom_font_size'>{errors?.password?.message}</small>
 
-                <button type='submit' class="form_btn">Sign In</button>
+                <button type='submit' className="form_btn">Sign In</button>
             </form>
         </div>
     );
